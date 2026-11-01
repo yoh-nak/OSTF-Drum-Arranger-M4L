@@ -2,9 +2,9 @@
 
 **OSTF Drum Arranger** is a free Max for Live device for creating, editing, capturing, arranging, and exporting drum patterns using the **Open Song Timeline Format (OSTF)**.
 
-It is designed for producers, composers, and songwriters who want to build drum arrangements around the actual structure of a song rather than working only with isolated MIDI clips.
+It is designed for producers, composers, songwriters, and arrangers who want to build drum parts around the actual structure of a song rather than working only with isolated MIDI clips.
 
-The device supports **OSTF 3.5** and works with song sections such as Intro, Verse, Pre-Chorus, Chorus, Bridge, and Outro.
+The device supports **OSTF 3.5** and works with song sections such as Intro, Verse, Pre-Chorus, Chorus, Bridge, Outro, and custom sections.
 
 ---
 
@@ -17,13 +17,13 @@ The device supports **OSTF 3.5** and works with song sections such as Intro, Ver
 - Uses OSTF-standard song, section, tempo, genre, note, drum mapping, and arrangement data
 - Preserves existing OSTF information when editing drum arrangements
 - Does not require Drum Arranger-specific vendor extensions for normal OSTF data
-- Keeps compatibility with supported OSTF 3.x files where possible
+- Maintains compatibility with supported OSTF 3.x files where possible
 
 ---
 
 ## Section-Based Drum Arranging
 
-Drum patterns are organized around the sections of the song.
+Drum patterns are organized around the actual sections of the song.
 
 You can move between sections such as:
 
@@ -65,9 +65,8 @@ Individual drum rows can also be regenerated independently.
 
 The built-in drum Step Editor provides direct control over the drum pattern.
 
-Features include:
+Supported grid resolutions:
 
-- Multiple grid resolutions
 - 1/1
 - 1/2
 - 1/4
@@ -90,7 +89,7 @@ You can edit:
 - Per-row generation
 - Per-row clearing
 
-Playback feedback highlights the currently sounding drum kit and active step positions.
+Playback feedback highlights the currently sounding drum row and active step positions.
 
 ---
 
@@ -109,7 +108,7 @@ This allows generated patterns to be adjusted from rigid programmed drums toward
 
 ## Pattern Banks
 
-Each OSTF section can contain multiple independent pattern ideas.
+Each OSTF section can contain multiple independent drum pattern ideas.
 
 Pattern Banks:
 
@@ -144,13 +143,23 @@ Useful for transitions such as:
 
 ---
 
+## Phrase Compare
+
+Compare generated drum candidates before committing them to the arrangement.
+
+Phrase Compare helps evaluate alternative patterns while preserving the current pattern until a candidate is adopted.
+
+This is useful when experimenting with different drum ideas without losing the existing arrangement.
+
+---
+
 ## Live MIDI Capture
 
 OSTF Drum Arranger can capture drum MIDI directly from Ableton Live.
 
-The Capture workflow is designed around selecting musical bars visually.
+The Capture workflow is designed around visually selecting musical bars.
 
-### Capture workflow
+### Capture Workflow
 
 1. Select a MIDI source in Ableton Live
 2. Capture MIDI into OSTF Drum Arranger
@@ -178,7 +187,7 @@ The same selected bars can be assigned to multiple OSTF sections.
 
 OSTF Drum Arranger includes drum mapping tools for both standard MIDI drum layouts and Ableton Drum Rack workflows.
 
-### Supported workflows
+### Supported Workflows
 
 - GM16
 - Drum Rack
@@ -226,7 +235,7 @@ Additional options include:
 - Internal clock
 - DAW synchronization
 
-The playhead follows the current drum position while active notes and drum kit rows are highlighted.
+The playhead follows the current drum position while active notes and drum rows are highlighted.
 
 ---
 
@@ -283,12 +292,12 @@ OSTF Drum Arranger is distributed as an `.amxd` Max for Live device.
 
 ## Installation
 
-1. Download `OSTF_Drum_Arranger_v1.0.amxd`
+1. Download `OSTF_Drum_Arranger_v1.1.amxd`
 2. Place the file in your preferred Max for Live device folder
 3. Open Ableton Live
 4. Drag OSTF Drum Arranger onto a MIDI track
 5. Open an OSTF file or create a new song structure
-6. Generate, edit, capture, and arrange drum patterns
+6. Generate, edit, capture, arrange, and export drum patterns
 
 ---
 
@@ -296,7 +305,7 @@ OSTF Drum Arranger is distributed as an `.amxd` Max for Live device.
 
 OSTF Drum Arranger is built around the **Open Song Timeline Format**.
 
-OSTF is an open format for describing complete song structure, including musical information such as sections, harmony, melody, lyrics, arrangement data, timing, and other song-level information.
+OSTF is an open format for describing complete song structure and musical information, including sections, harmony, melody, lyrics, arrangement data, timing, and other song-level information.
 
 OSTF Drum Arranger focuses specifically on the drum arrangement workflow while preserving the surrounding OSTF song data.
 
@@ -324,9 +333,11 @@ The focus is on **musical workflow and arrangement**, while your preferred Drum 
 
 ---
 
-## Version 1.0
+## Version 1.1
 
-The first public release includes:
+Version 1.1 is the corrected public release of OSTF Drum Arranger.
+
+It includes:
 
 - OSTF 3.5 support
 - Section-based drum arranging
@@ -335,7 +346,8 @@ The first public release includes:
 - Velocity editing
 - Humanize tools
 - Fill generation
-- Pattern Banks A–H
+- Phrase Compare
+- Pattern Banks A-H
 - Live MIDI Capture
 - Drag and Shift multi-selection
 - Section assignment
@@ -349,6 +361,9 @@ The first public release includes:
 - Export to Ableton Live
 - English user interface
 - Stable grid rendering
+- Improved UI consistency
+- Corrected remaining Japanese text in deep editing views
+- Corrected visible version labels
 
 ---
 
