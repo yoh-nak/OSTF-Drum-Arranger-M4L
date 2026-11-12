@@ -1,116 +1,114 @@
 # OSTF Drum Arranger
 
-**OSTF Drum Arranger** is a free Max for Live device for creating, editing, capturing, arranging, and exporting drum patterns using the **Open Song Timeline Format (OSTF)**.
+**OSTF Drum Arranger** is a free Max for Live device for creating, generating, editing, capturing, arranging, reviewing, and exporting drum parts around the structure of a complete song using the **Open Song Timeline Format (OSTF)**.
 
-It is designed for producers, composers, songwriters, and arrangers who want to build drum parts around the actual structure of a song rather than working only with isolated MIDI clips.
+Instead of treating drums as isolated MIDI clips, OSTF Drum Arranger works with the song itself: sections, roles, genre, tempo, meter, harmony, arrangement position, and other musical context.
 
-The device supports **OSTF 3.5** and works with song sections such as Intro, Verse, Pre-Chorus, Chorus, Bridge, Outro, and custom sections.
-
----
-
-## Features
-
-### OSTF 3.5 Support
-
-- Designed for OSTF 3.5
-- Reads song structure directly from OSTF files
-- Uses OSTF-standard song, section, tempo, genre, note, drum mapping, and arrangement data
-- Preserves existing OSTF information when editing drum arrangements
-- Does not require Drum Arranger-specific vendor extensions for normal OSTF data
-- Maintains compatibility with supported OSTF 3.x files where possible
+Version 2.0 significantly expands the device beyond drum-pattern editing by integrating the current Composer-side songwriting, harmony, and review workflows while keeping the Drum Arranger workspace focused on drums.
 
 ---
 
-## Section-Based Drum Arranging
+## Main Features
 
-Drum patterns are organized around the actual sections of the song.
+- Section-aware drum arrangement
+- Whole-song drum generation
+- Section generation
+- Pattern Banks A–H
+- Step Editor
+- Velocity editing
+- Humanize tools
+- Transition / Fill generation
+- Start Phrase generation
+- End Phrase generation
+- Live MIDI Capture
+- Dedicated Capture / Live I/O workspace
+- MIDI export
+- Send MIDI directly to Ableton Live
+- Drum Rack / GM mapping
+- MIDI Expression support
+- Internal playback
+- DAW Sync
+- Section / Whole Song playback
+- Loop and Loop Range
+- Follow playback
+- Compose Song
+- Section Composer
+- Harmony Studio
+- Review Studio
+- Working Key analysis
+- Harmony Evidence
+- Progression Library
+- Genre-aware chord color
+- Theory Guide
+- Song Map editing
+- OSTF Text support
+- OSTF 4.x data-preservation workflow
 
-You can move between sections such as:
+---
+
+# Song-Structure-Aware Drum Arranging
+
+OSTF Drum Arranger works around the actual structure of the song.
+
+Typical sections include:
 
 - Intro
 - Verse
 - Pre-Chorus
 - Chorus
 - Bridge
+- Solo
+- Breakdown
+- Drop
 - Outro
 - Custom OSTF sections
 
-Each section can contain its own independent drum patterns and Pattern Banks.
+Each Section can maintain independent drum patterns and Pattern Banks while remaining associated with the song timeline.
 
-The drum arrangement stays synchronized with the song structure stored in the OSTF file.
+The Section structure is shared with the OSTF song rather than being maintained as an unrelated drum-only arrangement.
 
 ---
 
-## Drum Pattern Generation
+# Drum Pattern Generation
 
-Generate drum patterns based on the current song section and musical context.
+Generate drum arrangements based on the current musical context.
 
-Controls include:
+Generation can consider:
 
 - Genre
-- Section type
-- Generation style
-- Pattern feel
-- Note density
-- Replace / generation behavior
-- Bar range
-- Whole-section generation
-- Whole-song generation
+- Section role
+- Section position
+- Energy
+- Song structure
+- Current Pattern Bank
+- Write Mode
+- Existing locked notes
+- Neighboring musical context
+- Transition position
 
-Individual drum rows can also be regenerated independently.
+Generation is available at several levels.
 
----
+### Generate Section
 
-## Step Editor
+Generate the selected Section while preserving the rest of the song.
 
-The built-in drum Step Editor provides direct control over the drum pattern.
+### Generate Whole Song
 
-Supported grid resolutions:
+Generate drum parts across the complete OSTF song structure.
 
-- 1/1
-- 1/2
-- 1/4
-- 1/8
-- 1/16
-- 1/32
-- 1/64
-- 1/128
-- Triplet grid
+The Whole-Song workflow can consider different roles and energy levels for different Sections instead of applying one identical pattern across the entire song.
 
-You can edit:
+### Per-Row Generation
 
-- Note placement
-- Velocity
-- Fine hits
-- Drum rows
-- Solo
-- Mute
-- Lock
-- Per-row generation
-- Per-row clearing
-
-Playback feedback highlights the currently sounding drum row and active step positions.
+Individual drum lanes can also be regenerated independently.
 
 ---
 
-## Velocity and Humanize
+# Pattern Banks
 
-Dedicated editing modes are available for:
+Every Section supports multiple independent pattern ideas.
 
-- Velocity
-- Timing variation
-- Humanization
-- Performance variation
-
-This allows generated patterns to be adjusted from rigid programmed drums toward more natural performances.
-
----
-
-## Pattern Banks
-
-Each OSTF section can contain multiple independent drum pattern ideas.
-
-Pattern Banks:
+Available Banks:
 
 - A
 - B
@@ -121,193 +119,469 @@ Pattern Banks:
 - G
 - H
 
-You can quickly compare alternate patterns while keeping them associated with the same OSTF section.
+Banks make it possible to keep several drum interpretations for the same Section without losing the current arrangement.
 
 Patterns can also be copied between Banks.
 
 ---
 
-## Fill Generation
+# Step Editor
 
-Create fills for transitions and section endings.
+The built-in Step Editor provides direct drum-pattern editing.
 
-Fill tools can be used to add variation without rebuilding the full drum pattern.
+Supported grid resolutions include:
 
-Useful for transitions such as:
+- 1/1
+- 1/2
+- 1/4
+- 1/8
+- 1/16
+- 1/32
+- 1/64
+- 1/128
+- Triplet
 
-- Verse to Chorus
-- Pre-Chorus to Chorus
-- Chorus to Verse
+Editing includes:
+
+- Note placement
+- Velocity
+- Fine hits
+- Solo
+- Mute
+- Per-row generation
+- Bar copy
+- Bar paste
+- Duplicate to next bar
+- Lock protection
+- Clear Solo / Mute
+
+The editor can display different bar ranges while keeping the Section length owned by the OSTF song structure.
+
+---
+
+# Velocity Mode
+
+Velocity Mode provides dedicated control over drum dynamics.
+
+Velocity data can be edited independently of note placement.
+
+This makes it possible to retain the pattern rhythm while reshaping accents, ghost-note behavior, and performance dynamics.
+
+---
+
+# Humanize Mode
+
+Humanize Mode can introduce controlled performance variation.
+
+Humanization can affect elements such as:
+
+- Velocity
+- Timing
+- Accent balance
+- Repetition feel
+
+The goal is not to randomize the pattern blindly, but to make programmed drums feel less mechanically identical.
+
+---
+
+# Transition / Fill Generation
+
+OSTF Drum Arranger includes dedicated transition tools.
+
+Available phrase-generation workflows include:
+
+- Transition / Fill
+- Start Phrase
+- End Phrase
+
+These can be used without rebuilding the complete Section.
+
+Typical use cases include:
+
+- Verse → Chorus
+- Pre-Chorus → Chorus
+- Chorus → Verse
+- Breakdown → Drop
 - Bridge transitions
-- Final section endings
+- Intro pickup
+- Outro ending
+- Section-opening fills
 
 ---
 
-## Phrase Compare
+# Capture / Live I/O
 
-Compare generated drum candidates before committing them to the arrangement.
+Version 2.0 includes a dedicated **Capture / Live I/O** mode.
 
-Phrase Compare helps evaluate alternative patterns while preserving the current pattern until a candidate is adopted.
+This workspace is separate from the Step, Velocity, and Humanize editing modes.
 
-This is useful when experimenting with different drum ideas without losing the existing arrangement.
+It provides both:
 
----
-
-## Live MIDI Capture
-
-OSTF Drum Arranger can capture drum MIDI directly from Ableton Live.
-
-The Capture workflow is designed around visually selecting musical bars.
-
-### Capture Workflow
-
-1. Select a MIDI source in Ableton Live
-2. Capture MIDI into OSTF Drum Arranger
-3. Captured MIDI is displayed as individual bar cards
-4. Select one or more source bars
-5. Assign those bars directly to an OSTF section
-
-Selection supports:
-
-- Click
-- Shift + Click
-- Ctrl / Cmd + Click
-- Drag selection
-- Shift + Drag
-- Select All
-- Clear Selection
-
-Captured source MIDI remains unchanged.
-
-The same selected bars can be assigned to multiple OSTF sections.
+- MIDI Output
+- Capture from Live
 
 ---
 
-## Drum Rack and MIDI Mapping
+## Capture from Ableton Live
 
-OSTF Drum Arranger includes drum mapping tools for both standard MIDI drum layouts and Ableton Drum Rack workflows.
+Selected MIDI clips can be captured directly from Ableton Live.
 
-### Supported Workflows
+Captured MIDI is displayed in a drum-oriented piano-roll view.
+
+Workflow:
+
+1. Select a MIDI clip in Ableton Live
+2. Open Capture / Live I/O
+3. Capture the selected Live MIDI clip
+4. Select a source range
+5. Choose the destination OSTF Section
+6. Choose the destination bar
+7. Select the Write Mode
+8. Review the assignment
+9. Commit the selected range to the Drum Track
+
+The source Live clip remains unchanged.
+
+Commit includes a confirmation workflow so the destination Section, Bank, bar position, range, and Write Mode can be reviewed before writing.
+
+---
+
+# MIDI Output
+
+The current Drum arrangement can be sent back to Ableton Live.
+
+Output options include:
+
+- Current Section
+- Whole Song
+- Active Bank
+- Arrangement destination
+- Session destination where supported
+- DAW-synchronized placement
+- Live Bar / Beat placement
+
+You can either:
+
+- Send MIDI directly to Live
+- Export Standard MIDI
+
+---
+
+# MIDI Expression
+
+MIDI Expression follows a common Arranger policy.
+
+When **MIDI EXPRESSION** is enabled, supported non-note MIDI information is included together with note output where applicable.
+
+There is no separate workflow requiring users to choose between a “notes only” mode and another full-MIDI mode.
+
+The common MIDI Expression switch acts as the master policy.
+
+---
+
+# Drum Rack and MIDI Mapping
+
+OSTF Drum Arranger supports both standard drum layouts and Ableton Drum Rack workflows.
+
+Supported mapping workflows include:
 
 - GM16
 - Drum Rack
-- Manual MIDI mapping
-- Automatic mapping
-- Drum Rack scanning
-- Pad routing
+- Automatic scanning
+- Manual mapping
+- Pad Routing
 - MIDI Learn
 
-Each drum sound can be assigned a generator role such as:
+Drum lanes can represent roles such as:
 
 - Kick
 - Snare
 - Clap
 - Closed Hi-Hat
 - Open Hi-Hat
+- Pedal Hi-Hat
 - Tom
-- Rim
+- Rim / Side Stick
 - Crash
 - Ride
 - Shaker
-- Cowbell
 - Tambourine
+- Cowbell
 - Percussion
 - FX / One-shot
 - Custom
 - Unassigned
 
-Drum colors and display order can also be configured.
+Mapping can be adapted to different Drum Rack layouts without changing the musical role of the generated drum part.
 
 ---
 
-## Playback
+# Playback
 
-Playback modes include:
+Playback options include:
 
 - Section
 - Whole Song
-- Selected Bars
-
-Additional options include:
-
+- Stop
 - Loop
+- Loop Range
 - Follow
-- Internal clock
-- DAW synchronization
 
-The playhead follows the current drum position while active notes and drum rows are highlighted.
+When Loop is enabled without a custom Loop Range, the currently selected playback scope is repeated.
 
----
+For example:
 
-## Export to Ableton Live
+- SECTION + LOOP → loop the current Section
+- WHOLE SONG + LOOP → loop the complete song
+- LOOP RANGE → loop the explicitly selected range
 
-Committed drum patterns can be exported back to Ableton Live as MIDI.
+Playback can use:
 
-The Export workflow includes:
+- Internal playback
+- DAW Sync
 
-1. Select the source pattern
-2. Select a destination MIDI track
-3. Choose an Arrangement position
-4. Preview the export plan
-5. Write the MIDI data to Live
-
-Existing source OSTF data remains unchanged unless explicitly saved through OSTF editing.
+The current Section and playback position are visually followed during playback.
 
 ---
 
-## Undo and Editing
+# Composer Workflow
+
+Version 2.0 integrates the current left-side songwriting workflow from **OSTF Composer v3.0**.
+
+The Drum Arranger keeps its own drum-specific right workspace, while the left side provides shared composition and harmonic tools.
+
+---
+
+## Compose Song
+
+Compose Song can generate and explore chord progression ideas across the song structure.
+
+Generation can consider:
+
+- Genre
+- Mood
+- Harmonic Color
+- Harmonic Depth
+- Pattern Focus
+- Variation
+- Section roles
+- Local Working Keys
+- Neighboring progressions
+- Song structure
+
+Ideas can be generated, reviewed, auditioned, and applied without requiring the Drum Arranger to become a full voicing editor.
+
+---
+
+# Section Composer
+
+Section Composer provides Section-level harmonic editing and generation.
+
+It uses the current Composer-side:
+
+- Progression Library
+- Genre Context
+- Genre Chord Color
+- Working Key logic
+- Harmony Evidence
+- Theory-aware suggestions
+
+The current Progression Library includes a large set of theory-derived and genre-aware progression patterns.
+
+---
+
+# Harmony Studio
+
+Harmony Studio provides song-wide harmonic analysis and editing support.
+
+It can work across multiple Sections and supports selection ranges spanning Section boundaries.
+
+Features include:
+
+- Chord progression overview
+- Multi-chord selection
+- Current Section selection
+- Whole Song selection
+- Harmonic-function analysis
+- Tension / resolution analysis
+- Suggestions
+- Theory view
+- Theory Map
+- Development tools
+- A/B comparison workflows
+
+Selected chords use the same selection-state behavior as the current OSTF Composer implementation.
+
+---
+
+# Review Studio
+
+Review Studio provides a dedicated workflow for evaluating existing harmony rather than immediately replacing it.
+
+It can analyze musical context and generate review ideas based on:
+
+- Harmonic function
+- Working Key
+- Progression context
+- Section role
+- Harmony Evidence
+- Genre context
+- Tension and resolution
+
+Review Studio is useful when a progression is already mostly complete and the goal is to identify possible improvements rather than generate an entirely new progression.
+
+---
+
+# Working Key and Harmony Evidence
+
+OSTF Drum Arranger v2.0 includes the Composer-side Working Key and Harmony Evidence systems.
+
+These are used by Composer-related workflows to interpret harmony in context.
+
+This is especially useful for:
+
+- Local tonal centers
+- Modal sections
+- Borrowed harmony
+- Section-to-section harmonic movement
+- Genre-dependent harmonic interpretation
+
+---
+
+# Theory Guide
+
+The left-side editor includes visual theory assistance for chord and scale context.
+
+Theory information is intended as composition support rather than a restriction on what can be entered.
+
+---
+
+# Song Map
+
+Song-level timeline information can be edited from the left workspace.
+
+Supported contextual data includes:
+
+- Key
+- Tempo
+- Meter
+
+Section-local information can coexist with global song information where supported by the OSTF document.
+
+---
+
+# OSTF Support
+
+OSTF Drum Arranger was originally developed around **OSTF 3.5** and now includes the Composer-side Core/Adapter behavior required to preserve and work with compatible **OSTF 4.x** documents.
+
+Version 2.0 can preserve linked OSTF information such as:
+
+- Song structure
+- Section data
+- Tempo
+- Meter
+- Key information
+- Timed scale information
+- Lyrics
+- Imported tracks
+- Other compatible timeline data
+
+Complex OSTF data is no longer blanket-locked simply because additional non-drum information is present.
+
+The Drum Arranger modifies its relevant drum data while attempting to preserve surrounding OSTF song information.
+
+---
+
+# OSTF Text
+
+OSTF Text workflows are available for exchanging OSTF song information in text form.
+
+The Drum Arranger retains its own Drum-specific import workflow so that a target Drum Track can be selected when appropriate.
+
+---
+
+# Undo and Editing
 
 Editing tools include:
 
 - Undo
 - Redo
+- Add Section
+- Duplicate Section
+- Delete Section
+- Move Section
+- Split
+- Transpose
 - Copy Bar
 - Paste Bar
 - Duplicate to Next
 - Clear Solo / Mute
-- Lock protection
 - Pattern Bank copy
-
-Locked notes and protected elements are preserved where applicable.
-
----
-
-## English User Interface
-
-The released version uses an English interface throughout the device.
-
-Japanese and other language data stored inside an OSTF file can still be preserved as song content.
+- Lock protection
 
 ---
 
-## Requirements
+# English User Interface
+
+The released device uses an English interface.
+
+OSTF song content itself can still contain other languages.
+
+For example:
+
+- Song titles
+- Lyrics
+- Section names
+- Metadata
+
+are preserved where supported.
+
+---
+
+# Requirements
 
 - Ableton Live
 - Max for Live
-- A compatible version of Max included with or supported by your Ableton Live installation
+- A compatible version of Max included with or supported by Ableton Live
 
-OSTF Drum Arranger is distributed as an `.amxd` Max for Live device.
+OSTF Drum Arranger is distributed as an `.amxd` Max for Live MIDI device.
 
 ---
 
-## Installation
+# Installation
 
-1. Download `OSTF_Drum_Arranger_v1.1.amxd`
+1. Download `OSTF_Drum_Arranger_v2.0.amxd`
 2. Place the file in your preferred Max for Live device folder
 3. Open Ableton Live
 4. Drag OSTF Drum Arranger onto a MIDI track
-5. Open an OSTF file or create a new song structure
-6. Generate, edit, capture, arrange, and export drum patterns
+5. Click **Open** to open the full editor
+6. Open an OSTF file or create a new song
+7. Create or apply a song structure
+8. Generate, edit, capture, arrange, review, and export drum parts
 
 ---
 
-## Open Song Timeline Format
+# Open Song Timeline Format
 
 OSTF Drum Arranger is built around the **Open Song Timeline Format**.
 
-OSTF is an open format for describing complete song structure and musical information, including sections, harmony, melody, lyrics, arrangement data, timing, and other song-level information.
+OSTF is an open format for describing complete song structure and musical information, including:
 
-OSTF Drum Arranger focuses specifically on the drum arrangement workflow while preserving the surrounding OSTF song data.
+- Sections
+- Harmony
+- Melody
+- Lyrics
+- MIDI notes
+- Performance information
+- Arrangement data
+- Timing
+- Tempo
+- Meter
+- Key maps
+- Scale information
+- Other song-level information
+
+OSTF Drum Arranger focuses on the drum-arrangement workflow while preserving the surrounding song data whenever possible.
 
 OSTF 3.5:
 
@@ -315,59 +589,71 @@ https://github.com/yoh-nak/Open-Song-Timeline-Format-3.5
 
 ---
 
-## Project Philosophy
+# Project Philosophy
 
-OSTF Drum Arranger is not intended to replace a dedicated drum instrument or high-end drum sample library.
+OSTF Drum Arranger is not intended to replace a dedicated drum instrument, sampler, or high-end drum library.
 
-Its main purpose is to provide:
+Its role is primarily:
 
 - Composition support
-- Arrangement support
-- Song-structure-aware drum editing
+- Drum arrangement
+- Song-structure-aware editing
 - MIDI capture
 - Pattern experimentation
+- Harmonic context
 - OSTF integration
-- Ableton Live workflow integration
+- Ableton Live integration
 
-The focus is on **musical workflow and arrangement**, while your preferred Drum Rack, drum instrument, or external sound source handles the final sound.
+Your preferred Drum Rack, drum instrument, sampler, or external sound source remains responsible for the final sound.
 
 ---
 
-## Version 1.1
+# Version 2.0
 
-Version 1.1 is the corrected public release of OSTF Drum Arranger.
+Version 2.0 is a major workflow and architecture update.
 
-It includes:
+Highlights include:
 
-- OSTF 3.5 support
-- Section-based drum arranging
-- Drum pattern generation
-- Step editing
-- Velocity editing
-- Humanize tools
-- Fill generation
-- Phrase Compare
-- Pattern Banks A-H
-- Live MIDI Capture
-- Drag and Shift multi-selection
-- Section assignment
-- GM16 mapping
-- Drum Rack mapping
-- Pad Routing
-- MIDI Learn
-- Playback feedback
-- Section playback
-- Whole-song playback
-- Export to Ableton Live
+- Dedicated Capture / Live I/O mode
+- Improved Live MIDI capture
+- Review-before-commit Capture workflow
+- Improved Standard MIDI export
+- Common MIDI Expression output policy
+- Improved Drum Rack and routing workflow
+- Pattern Banks A–H
+- Section and Whole-Song generation
+- Transition / Fill generation
+- Start Phrase generation
+- End Phrase generation
+- STEP / VELOCITY / HUMANIZE modes
+- Stable Section / Whole Song playback
+- Loop and Loop Range
+- Playback Follow
+- Improved Section synchronization
+- Improved state recovery after New / Template Apply / Capture operations
+- Composer v3.0 Compose Song integration
+- Composer v3.0 Section Composer integration
+- Harmony Studio
+- Review Studio
+- Working Key analysis
+- Harmony Evidence
+- Current Progression Library
+- Genre Context
+- Genre Chord Color
+- Theory Guide
+- Song Map
+- OSTF 4.x preserve/edit behavior
+- Improved Host State / Lifecycle handling
+- Improved device-view loading behavior
 - English user interface
-- Stable grid rendering
-- Improved UI consistency
-- Corrected remaining Japanese text in deep editing views
-- Corrected visible version labels
+
+The left Composer workspace is aligned with OSTF Composer v3.0 while the right side remains dedicated to the Drum Arranger workflow.
+
+Composer-specific right-side Voicing Studio, Composer Capture / Output, and Composer DAW Sync are intentionally not included because OSTF Drum Arranger maintains its own drum-specific right workspace and I/O workflow.
 
 ---
 
-## Support Development
+# Support Development
 
 OSTF Drum Arranger is available for free.
 
@@ -377,11 +663,18 @@ If you find the project useful and would like to support continued development:
 
 https://buymeacoffee.com/yohsukenak
 
-Your support helps with continued development of OSTF, Max for Live tools, documentation, testing, and future music-production utilities.
+Your support helps with continued development of:
+
+- OSTF
+- Max for Live devices
+- Documentation
+- Testing
+- Music-production utilities
+- Composition and arrangement tools
 
 ---
 
-## Repository
+# Repository
 
 OSTF Drum Arranger for Max for Live
 
@@ -389,14 +682,14 @@ https://github.com/yoh-nak/OSTF-Drum-Arranger-M4L
 
 ---
 
-## License
+# License
 
 Please refer to the license information included in this repository.
 
 ---
 
-## Author
+# Author
 
 Developed by **yoh-nak**
 
-Open Song Timeline Format / OSTF Max for Live project
+Open Song Timeline Format / OSTF Max for Live Project
