@@ -4,12 +4,18 @@
 
 Instead of treating drums as isolated MIDI clips, OSTF Drum Arranger works with the song itself: sections, roles, genre, tempo, meter, harmony, arrangement position, and other musical context.
 
-Version 2.0 significantly expands the device beyond drum-pattern editing by integrating the current Composer-side songwriting, harmony, and review workflows while keeping the Drum Arranger workspace focused on drums.
+**Version 2.0 supports OSTF 3.5 and the OSTF 4.x family through the current OSTF Core/Adapter workflow.**
+
+OSTF 4.x song data can remain editable while Drum Arranger preserves compatible surrounding information such as song structure, tempo, meter, key maps, timed scales, lyrics, imported tracks, voices, and other timeline data.
+
+Version 2.0 also integrates the current Composer-side songwriting, harmony, and review workflows while keeping the right side focused on drum arrangement.
 
 ---
 
 ## Main Features
 
+- OSTF 3.5 support
+- OSTF 4.x editable / preserve workflow
 - Section-aware drum arrangement
 - Whole-song drum generation
 - Section generation
@@ -22,7 +28,7 @@ Version 2.0 significantly expands the device beyond drum-pattern editing by inte
 - End Phrase generation
 - Live MIDI Capture
 - Dedicated Capture / Live I/O workspace
-- MIDI export
+- Standard MIDI export
 - Send MIDI directly to Ableton Live
 - Drum Rack / GM mapping
 - MIDI Expression support
@@ -42,7 +48,7 @@ Version 2.0 significantly expands the device beyond drum-pattern editing by inte
 - Theory Guide
 - Song Map editing
 - OSTF Text support
-- OSTF 4.x data-preservation workflow
+- OSTF 4.x round-trip protection
 
 ---
 
@@ -88,17 +94,17 @@ Generation can consider:
 
 Generation is available at several levels.
 
-### Generate Section
+## Generate Section
 
 Generate the selected Section while preserving the rest of the song.
 
-### Generate Whole Song
+## Generate Whole Song
 
 Generate drum parts across the complete OSTF song structure.
 
 The Whole-Song workflow can consider different roles and energy levels for different Sections instead of applying one identical pattern across the entire song.
 
-### Per-Row Generation
+## Per-Row Generation
 
 Individual drum lanes can also be regenerated independently.
 
@@ -352,7 +358,7 @@ The Drum Arranger keeps its own drum-specific right workspace, while the left si
 
 ---
 
-## Compose Song
+# Compose Song
 
 Compose Song can generate and explore chord progression ideas across the song structure.
 
@@ -448,6 +454,39 @@ This is especially useful for:
 
 ---
 
+# Progression Library
+
+Version 2.0 includes the current Composer-side Progression Library.
+
+The library contains more than one hundred theory-derived and genre-aware progression patterns used by Section Composer and related suggestion workflows.
+
+Genre and role context can influence which progressions are suggested and how they are ranked.
+
+---
+
+# Genre Context and Chord Color
+
+Composer-side Genre Context and Genre Chord Color systems are integrated into the left workspace.
+
+Current genre context includes support for styles such as:
+
+- Pop
+- Rock
+- R&B
+- Neo Soul
+- House
+- Deep House
+- Tech House
+- Techno
+- Trance
+- EDM
+- Metal
+- Other supported OSTF genres
+
+Genre context influences harmonic interpretation and suggestion behavior without changing the source OSTF genre metadata automatically.
+
+---
+
 # Theory Guide
 
 The left-side editor includes visual theory assistance for chord and scale context.
@@ -472,23 +511,49 @@ Section-local information can coexist with global song information where support
 
 # OSTF Support
 
-OSTF Drum Arranger was originally developed around **OSTF 3.5** and now includes the Composer-side Core/Adapter behavior required to preserve and work with compatible **OSTF 4.x** documents.
+OSTF Drum Arranger v2.0 supports both **OSTF 3.5** and compatible **OSTF 4.x** documents.
 
-Version 2.0 can preserve linked OSTF information such as:
+## OSTF 3.5
 
-- Song structure
-- Section data
-- Tempo
-- Meter
-- Key information
-- Timed scale information
-- Lyrics
-- Imported tracks
-- Other compatible timeline data
+OSTF 3.5 remains fully supported for the Drum Arranger workflow.
 
-Complex OSTF data is no longer blanket-locked simply because additional non-drum information is present.
+Supported workflows include:
 
-The Drum Arranger modifies its relevant drum data while attempting to preserve surrounding OSTF song information.
+- Section-based editing
+- Drum generation
+- Pattern Banks
+- Capture / Live I/O
+- MIDI export
+- Harmony workflows
+- Composer-side workflows
+- Standard OSTF song and Section data
+
+## OSTF 4.x
+
+Version 2.0 includes the current Composer-side OSTF Core and Adapter behavior required to work with OSTF 4.x documents.
+
+Supported behavior includes:
+
+- Recognizing OSTF 4.x documents as editable
+- Preserving compatible 4.x song data while editing drums
+- Preserving imported MIDI tracks
+- Preserving lyrics
+- Preserving voice-related data
+- Preserving timed scales
+- Preserving key maps
+- Preserving tempo
+- Preserving meter
+- Preserving Section and song structure
+- Preserving compatible performance information
+- Preserving compatible timeline information
+- Protecting OSTF 4.x source data from unintended downgrade to OSTF 3.5
+- Round-trip preservation checks for supported OSTF 4.x data
+
+OSTF Drum Arranger does not require the entire song to be converted into a drum-specific format.
+
+The Drum Arranger edits the relevant drum arrangement while retaining surrounding OSTF information wherever supported.
+
+Complex OSTF 4.x data is not automatically placed into a blanket read-only or safe mode simply because additional song information is present.
 
 ---
 
@@ -497,6 +562,22 @@ The Drum Arranger modifies its relevant drum data while attempting to preserve s
 OSTF Text workflows are available for exchanging OSTF song information in text form.
 
 The Drum Arranger retains its own Drum-specific import workflow so that a target Drum Track can be selected when appropriate.
+
+---
+
+# Host State and File Lifecycle
+
+Version 2.0 uses the current Composer-side Host State and lifecycle behavior for the shared left workspace.
+
+This includes:
+
+- Stable New / Open / Save lifecycle handling
+- Preserving appropriate file-session state
+- Avoiding persistence of transient internal UI fields
+- Maintaining document revision lineage
+- Preserving compatible OSTF metadata
+
+The Drum-specific file and Track selection workflows remain separate from Composer.
 
 ---
 
@@ -579,6 +660,7 @@ OSTF is an open format for describing complete song structure and musical inform
 - Meter
 - Key maps
 - Scale information
+- Voice and vocal-related information
 - Other song-level information
 
 OSTF Drum Arranger focuses on the drum-arrangement workflow while preserving the surrounding song data whenever possible.
@@ -586,6 +668,8 @@ OSTF Drum Arranger focuses on the drum-arrangement workflow while preserving the
 OSTF 3.5:
 
 https://github.com/yoh-nak/Open-Song-Timeline-Format-3.5
+
+For OSTF 4.x, use the current Open Song Timeline Format specification or repository version appropriate to your workflow.
 
 ---
 
@@ -614,6 +698,9 @@ Version 2.0 is a major workflow and architecture update.
 
 Highlights include:
 
+- OSTF 3.5 support
+- OSTF 4.x editable / preserve workflow
+- OSTF 4.x round-trip protection
 - Dedicated Capture / Live I/O mode
 - Improved Live MIDI capture
 - Review-before-commit Capture workflow
@@ -642,14 +729,33 @@ Highlights include:
 - Genre Chord Color
 - Theory Guide
 - Song Map
-- OSTF 4.x preserve/edit behavior
+- OSTF 4.x Core / Adapter / Metadata behavior
 - Improved Host State / Lifecycle handling
 - Improved device-view loading behavior
 - English user interface
 
-The left Composer workspace is aligned with OSTF Composer v3.0 while the right side remains dedicated to the Drum Arranger workflow.
+The left Composer workspace is aligned with **OSTF Composer v3.0**.
 
-Composer-specific right-side Voicing Studio, Composer Capture / Output, and Composer DAW Sync are intentionally not included because OSTF Drum Arranger maintains its own drum-specific right workspace and I/O workflow.
+The right side remains dedicated to the Drum Arranger workflow.
+
+The following Composer-specific workflows are intentionally not included because OSTF Drum Arranger maintains its own Drum-specific equivalents:
+
+- Composer right-side Voicing Studio
+- Composer Capture / Live Output workspace
+- Composer DAW Sync
+- Composer File Drop / OSTF Text Import
+- Composer MIDI Output workspace
+
+OSTF Drum Arranger retains its own:
+
+- Drum generation workspace
+- Drum Track Selector
+- Drum Capture / Live I/O
+- MIDI export
+- Drum mapping
+- Pattern Banks
+- Mode controller
+- Transport controller
 
 ---
 
